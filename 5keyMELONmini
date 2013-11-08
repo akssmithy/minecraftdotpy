@@ -1,0 +1,155 @@
+##5 key tasks for learning Python in Minecraft on the Raspberry Pi
+
+#Name, Form, Date
+import minecraft, block, time
+mc=minecraft.Minecraft.create()
+
+#task1 - Sequencing
+mc.setBlock(0,50,0,block.GRASS)
+time.sleep(1)
+mc.player.setPos(0,55,0)
+
+#task2 - Variables
+xyz=mc.player.getPos()
+mc.postToChat("U wer "+str(xyz)+"but now UR 10steps LEFT!")
+mc.player.setPos(xyz.x,xyz.y,xyz.z+10)
+
+#task3 - Selection
+xyz=mc.player.getPos()
+if mc.getBlock(xyz.x, xyz.y-1, xyz.z)==block.GRASS.id:
+    mc.postToChat("Watch out for dog poop!")
+
+#task4 - Loops
+startedAt=time.time() 
+while time.time()<startedAt+5:
+    mc.postToChat(str(time.time()-startedAt)[:3])
+
+#task5 - Abstraction
+def takeMeHome():
+    mc.player.setPos(0,55,0)
+takeMeHome()
+    
+
+################################################################################################################################
+
+###Minecraft Melon Mission
+import minecraft
+import block
+import time
+
+mc=minecraft.Minecraft.create()
+
+# task1 - Quick, Get the Melon!!
+mc.setBlock(0,30,0,
+            block.MELON)
+starttime=time.time()
+while time.time()-starttime<30:
+    mc.postToChat("Time left: " + str(30-(time.time()-starttime))[0:2])
+if mc.getBlock(0,30,0)==block.MELON.id:
+    mc.postToChat("Fail!")
+else:
+    mc.postToChat("Win!!")
+mc.setBlock(0,30,0,
+            block.AIR)
+#ext - randomly spawn the melon at various x,y coords
+
+
+################################################################################################################################
+
+##Mini Missions...
+import minecraft
+import block
+import time
+
+mc=minecraft.Minecraft.create()
+
+# Automatic Teleporter
+while True:
+    time.sleep(5)
+    mc.player.setPos(0,50,0)
+#ext - teleport yourself on top of your own custom built tower
+
+# AntiDig Program
+while True:
+    xyz=mc.player.getPos()
+    if xyz.y<5:
+        mc.player.setPos(xyz.x,50,xyz.z)
+#ext - build a zone that teleports you home when you walk in it
+
+# Where am I?
+while True:
+    xyz=mc.player.getPos()
+    mc.postToChat(xyz)
+#ext - post messages like "are you a bird?!" if you fly too high
+
+
+
+# My Tower
+xyz=mc.player.getPos()
+for countUp in range(0,10):
+    mc.setBlock(xyz.x+5,xyz.y+countUp,xyz.z, block.WOOL.id, 3)
+#ext - create a wall or maybe even a cube in your fav colour
+
+#Massive Redstone Torch
+mc.player.setPos(0,20,0)
+red=block.WOOL.id, 14
+for countUp in range(0,200):
+    mc.setBlock(0,countUp,0,red)
+#ext - make the body wood & only the head red
+
+# Stood on?
+while True:
+    xyz=mc.player.getPos()
+    stoodOn=mc.getBlock(xyz.x,xyz.y-1,xyz.z)
+    mc.postToChat("You are stood on"+str(stoodOn))
+#ext - if you are stood on grass post a special message
+
+# Hot Sand
+while True:
+    xyz=mc.player.getPos()
+    stoodOn=mc.getBlock(xyz.x,xyz.y-1,xyz.z)
+    
+    if stoodOn==12:
+        mc.player.setPos(xyz.x,xyz.y+5,xyz.z)
+        mc.postToChat("Ouch!")
+#ext - have a variable for health that decreases with every ouch
+
+# Sky Playground
+mc.setBlocks(50,50,50,100,50,100,block.GRASS)
+mc.setBlocks(70,50,70,80,60,80,block.WOOD)
+mc.setBlocks(71,51,69,79,69,79,block.AIR)
+
+mc.setBlocks(71,55,71,74,55,74,block.SAND)
+mc.setBlocks(75,56,75,78,56,78,block.MELON)
+mc.setBlocks(71,57,75,74,57,78,block.CLAY)
+#ext - build more platforms with diff levels of difficulty
+
+# My Sky House
+high=50
+mc.setBlocks(-50,0+high,-50,50,0+high,50,block.GRASS)
+mc.setBlocks(-10,0+high,-10,10,10+high,10,block.WOOD)
+
+mc.setBlocks(-9,1+high,-9,9,9+high,9,block.AIR)
+mc.setBlocks(-8,2+high,-10,8,8+high,-10,block.GLASS)
+mc.setBlocks(-10,1+high,-6,-10,4+high,-8,block.AIR)
+#ext - Put glowstone in the roof to light the house up
+
+# Mario MineCraft Platforms:1&2
+mc.player.setPos(0,30,0)
+mc.setBlock(0,28,0,block.GRASS)
+mc.setBlock(0,32,0,block.MELON)
+
+while True:
+    xyz=mc.player.getPos()
+    stoodUnder=mc.getBlock(xyz.x,xyz.y+2,xyz.z)
+    
+    if stoodUnder==103:
+        mc.setBlock(0,32,0,block.AIR)
+        mc.postToChat("Yes!")
+#ext - follow youtube video of AKS 6th formers collecting coins 
+
+################################################################################################################################
+
+################CHECK OUT AKS 6TH FORMERS MAKING MINECRAFT MARIO
+
+
