@@ -7,6 +7,13 @@ Want a fun way to learn some python??? :)
 
 Download Minecraft for the Raspberry Pi.
 
+http://pi.minecraft.net/
+http://pi.minecraft.net/
+http://pi.minecraft.net/
+http://pi.minecraft.net/
+http://pi.minecraft.net/
+http://pi.minecraft.net/
+
 Get a game running & leave it open in the background.
 
 Then...
